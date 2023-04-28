@@ -1,22 +1,63 @@
-#include <bits/stdc++.h> 
-/****************************************************************
+//............................LEETCODE.......................//
 
-    Following is the class structure of the Node class:
+class Solution {
+public:
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+             
+       ListNode* dummy=new ListNode();
+       ListNode* ans=dummy;
+       ListNode* temp=dummy;
+       
+       int carry=0;
 
-        class Node
-        {
-        public:
-            int data;
-	        Node *next;
-            Node(int data)
-            {
-                this->data = data;
-                this->next = NULL;
-            }
-        };
+       while(l1!=NULL || l2!=NULL)   {
+     int sum=0;
+         if(l1!=NULL){
+             sum+=l1->val;
+             l1=l1->next;
 
-*****************************************************************/
+         }
 
+         if(l2!=NULL){
+             sum+=l2->val;
+             l2=l2->next;
+         }
+       
+       int fnl=sum+carry;
+       carry=0;
+       cout<<fnl<<" ";
+ListNode* newNode=new ListNode(); 
+       if(fnl>=10){
+             
+             newNode->val=fnl%10;
+             carry=fnl/10;
+
+       }else{
+           
+              newNode->val=fnl;
+       }
+              temp->next=newNode;
+              temp=temp->next;
+
+       }   
+
+if(carry==1){
+    ListNode* newNode=new ListNode();
+     newNode->val=carry; 
+     temp->next=newNode;
+
+}
+
+
+       return ans->next; 
+        
+    }
+};
+
+//................................END.......................
+
+
+//.............CodeStudio....................
 Node *addTwoNumbers(Node *head1, Node *head2)
 {
     Node *temp1=head1;
