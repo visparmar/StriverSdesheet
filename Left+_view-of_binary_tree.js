@@ -2,7 +2,7 @@
 
 // Iterative Approach
 
-var rightSideView = function(root) {
+var leftSideView = function(root) {
     if(root==null) return []
     let queue=[root];
  let ans=[];
@@ -28,7 +28,7 @@ var rightSideView = function(root) {
 // Recursive Approach.............
 
 
-var rightSideView = function(root) {
+var leftSideView = function(root) {
    if(root==null) return [];
     var result=[];
     recursion(root,0,result)
@@ -39,7 +39,7 @@ function recursion (root,level,result){
 if(result.length == level) {
     result.push(root.val);
 }
-    recursion(root.right,level+1,result)
     recursion(root.left,level+1,result)
+    recursion(root.right,level+1,result)
 
 }
