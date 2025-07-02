@@ -76,3 +76,35 @@ var setZeroes = function(matrix) {
 };
 
 //*************Better**********
+
+var setZeroes = function(matrix) {
+    
+    let col0 =1;
+    for(let i=0;i<matrix.length;i++){
+        for(let j=0;j<matrix[i].length;j++){
+            if(matrix[i][j] == 0){
+                if(j != 0) // first column 
+                     matrix[0][j] = 0;
+                else
+                     col0 = 0;
+                matrix[i][0] = 0;
+            }
+        }
+    }
+
+for(let i=1;i<matrix.length;i++){
+    for(let j=1;j<matrix[i].length;j++){
+           if(matrix[0][j]==0 || matrix[i][0]==0){
+            matrix[i][j]=0;
+           }
+    }
+}
+// iterate for last left condition which is matrix[0][0] rest is alread cover 
+
+if(matrix[0][0] == 0){
+    for(let i=0;i<matrix[0].length;i++) matrix[0][i] =0;
+}
+if(col0 == 0){
+    for(let i=0;i<matrix.length;i++) matrix[i][0] =0;
+}
+};
